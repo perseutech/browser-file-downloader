@@ -52,3 +52,7 @@ await FileDownloader.downloadFileAsPdf(blob, fileName)
 - `returns: void`
 
   This will download the `blob` as a file. The file type should be informed on the Blob object.
+
+## License
+
+[MIT](LICENSE)
