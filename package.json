@@ -10,6 +10,7 @@
   },
   "author": "Perseu Tech",
   "license": "MIT",
+  "repository": "https://github.com/perseutech/browser-file-downloader",
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "html-webpack-plugin": "^4.3.0",
