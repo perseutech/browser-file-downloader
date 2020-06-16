@@ -1,11 +1,11 @@
 {
-  "name": "@perseu/file-downloader",
+  "name": "@perseu/browser-file-downloader",
   "version": "0.0.0",
-  "description": "A simple JavaScript project for download file from a Blob.",
+  "description": "A simple JavaScript module for download file from a Blob in the Browser-side.",
   "main": "src/index.ts",
   "scripts": {
     "test": "",
-    "build": "webpack",
+    "build": "env MODE=production webpack",
     "start": "webpack-dev-server"
   },
   "author": "Perseu Tech",
