@@ -3,25 +3,14 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: process.env.MODE || 'development',
-  entry: './src/index.ts',
+  entry: './lib/downloader.js',
 
   output: {
-    filename: 'index.js',
+    filename: 'downloader.min.js',
     path: path.resolve(__dirname, 'dist'),
   },
 
   plugins: [new webpack.ProgressPlugin()],
-
-  module: {
-    rules: [
-      {
-        test: /.(ts|tsx)?$/,
-        loader: 'ts-loader',
-        include: [path.resolve(__dirname, 'src')],
-        exclude: [/node_modules/],
-      },
-    ],
-  },
 
   optimization: {
     splitChunks: {
