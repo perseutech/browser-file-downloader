@@ -1,12 +1,15 @@
 export interface FileDownloader {
-  static downloadFileAsPdf(blob: Blob, fileName: ?string): Promise<void>
-  static downloadFileAs(
-    blob: Blob,
-    type: string,
-    fileName: string = 'Download.pdf'
+  static downloadFileAsPdf(
+    data: File | ArrayBuffer | Blob,
+    fileName: ?string
   ): Promise<void>
+  static downloadFileAs(
+    data: File | ArrayBuffer | Blob,
+    type: ?string = 'text/plain',
+    fileName: ?string = 'Download'
+  ): Promise<void>
+  static downloadFile(blob: Blob, fileName: string): void
   static base64ToArrayBuffer(base64: string): ArrayBuffer
-  static saveByteArray(data: BlobPart[], name: string): void
 }
 
 declare const FileDownloader: FileDownloader
