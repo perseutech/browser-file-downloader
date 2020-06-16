@@ -1,6 +1,6 @@
 {
   "name": "@perseu/browser-file-downloader",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A simple JavaScript module for download file from a Blob in the Browser-side.",
   "main": "src/index.ts",
   "scripts": {
