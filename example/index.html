@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Browser File Downloader Example</title>
-  </head>
-  <body>
-    <div>
-      <form name="form">
-        <input type="file" name="file" />
-        <button type="button" onclick="downloadFromArrayBuffer()">
-          Download from ArrayBuffer
-        </button>
-        <button type="button" onclick="downloadFromFile()">
-          Download from File
-        </button>
-        <button type="button" onclick="downloadHTML()">
-          Download HTML
-        </button>
-      </form>
-    </div>
-    <script type="module">
-      import FileDownloader from './../lib/downloader.js'
 
-      window.downloadFromArrayBuffer = function () {
-        document.form.file.files[0].arrayBuffer().then((result) => {
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser File Downloader Example</title>
+</head>
+
+<body>
+  <div>
+    <form name="form">
+      <input type="file" name="file" />
+      <button type="button" onclick="downloadFromArrayBuffer()">
+        Download from ArrayBuffer
+      </button>
+      <button type="button" onclick="downloadFromFile()">
+        Download from File
+      </button>
+    </form>
+  </div>
+  <script type="module">
+    import FileDownloader from './../lib/downloader.js'
+
+    window.downloadFromArrayBuffer = function () {
+      try {
+        document.form.file.files[0].arrayBuffer().then(result => {
           FileDownloader.downloadFileAsPdf(result)
         })
+      } catch (error) {
+        alert(`Error on save file from array buffer: ${error}`)
       }
+    }
 
-      window.downloadFromFile = function () {
+    window.downloadFromFile = function () {
+      try {
         FileDownloader.downloadFileAsPdf(document.form.file.files[0])
+      } catch (error) {
+        alert(`Error on save file from file: ${error}`)
       }
+    }
+  </script>
+</body>
 
-      window.downloadHTML = function () {
-        let blob = new Blob(
-          ['<html><body><h1>Browser File Downloader</h1></body></html>'],
-          { type: 'text/html' }
-        )
-        FileDownloader.downloadFileAs(blob, 'text/html', 'index.html')
-      }
-    </script>
-  </body>
 </html>
